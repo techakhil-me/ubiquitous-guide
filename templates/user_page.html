@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h2 {
+            color: #007BFF;
+        }
+        p {
+            color: #28A745;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+        button {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ username }}! You are on the user page.</h2>
+    
+    <p>Comment Section:</p>
+    {% for comment in comments %}
+        <p>{{ comment }}</p>
+    {% endfor %}
+    
+    <input type="text" id="commentInput" placeholder="Enter your comment">
+    <button onclick="submitComment()">Submit Comment</button>
+    
+    <script>
+        function submitComment() {
+            var commentInput = document.getElementById('commentInput');
+            var commentSection = document.querySelector('p');
+            
+            var newComment = commentInput.value;
+            commentSection.innerHTML += '<p>' + newComment + '</p>';
+            
+            commentInput.value = '';
+        }
+    </script>
+
+    <!-- Feeling stuck? Remember, the journey is just as important as the destination. Keep exploring, and you'll uncover the flag! -->
+</body>
+</html>
